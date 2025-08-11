@@ -1,0 +1,15 @@
+*.o
+*.a
+magicka
+utils/*/obj
+utils/*/*.o
+deps/**/obj
+deps/**/objs-*
+deps/**/libs-*
+.git
+.github
+Dockerfile
+*.swp
+*.tmp
+logs
+data

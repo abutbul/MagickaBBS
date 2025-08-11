@@ -2,6 +2,7 @@
 #include "bbs.h"
 #include "lua/lua.h"
 #include "lua/lauxlib.h"
+#include "lua/lualib.h"
 
 extern int mynode;
 extern struct bbs_config conf;

@@ -85,7 +85,7 @@ void www_request_completed(void *cls, struct MHD_Connection *connection, void **
 	free(con_info);
 }
 
-static int iterate_post (void *coninfo_cls, enum MHD_ValueKind kind, const char *key, const char *filename, const char *content_type, const char *transfer_encoding, const char *data, uint64_t off, size_t size) {
+static enum MHD_Result iterate_post (void *coninfo_cls, enum MHD_ValueKind kind, const char *key, const char *filename, const char *content_type, const char *transfer_encoding, const char *data, uint64_t off, size_t size) {
 	struct connection_info_s *con_info = coninfo_cls;
 
 	int i;
@@ -365,7 +365,7 @@ struct user_record *www_auth_ok(struct MHD_Connection *connection, const char *u
 	return NULL;
 }
 
-int www_handler(void * cls, struct MHD_Connection * connection, const char * url, const char * method, const char * version, const char * upload_data, size_t * upload_data_size, void ** ptr) {
+enum MHD_Result www_handler(void * cls, struct MHD_Connection * connection, const char * url, const char * method, const char * version, const char * upload_data, size_t * upload_data_size, void ** ptr) {
 	struct MHD_Response *response;
 	
 	int ret;
@@ -418,7 +418,7 @@ int www_handler(void * cls, struct MHD_Connection * connection, const char * url
 			return MHD_YES;
 		}
 	} else {
-		return MHD_NO;
+			return MHD_NO;
 	}
 	
 	con_inf = *ptr;

@@ -318,7 +318,7 @@ extern void chomp(char *string);
 extern void www_init();
 extern void *www_logger(void * cls, const char * uri, struct MHD_Connection *con);
 extern void www_request_completed(void *cls, struct MHD_Connection *connection, void **con_cls, enum MHD_RequestTerminationCode toe);
-extern int www_handler(void * cls, struct MHD_Connection * connection, const char * url, const char * method, const char * version, const char * upload_data, size_t * upload_data_size, void ** ptr);
+extern enum MHD_Result www_handler(void * cls, struct MHD_Connection * connection, const char * url, const char * method, const char * version, const char * upload_data, size_t * upload_data_size, void ** ptr);
 extern char *www_email_summary(struct user_record *user);
 extern char *www_email_display(struct user_record *user, int email);
 extern int www_send_email(struct user_record *user, char *recipient, char *subject, char *body);
